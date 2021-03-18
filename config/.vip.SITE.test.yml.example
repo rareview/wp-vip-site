@@ -1,0 +1,3 @@
+data_sync:
+  domain_map:
+    PRODUCTION_URL: TEST_URL

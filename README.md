@@ -35,6 +35,6 @@ See [Engineering Workflows](.vip/docs/workflows.md) documentation.
 
 ## License
 
-MIT &copy; Copyright Rareview 2021-present
+[MIT](https://en.wikipedia.org/wiki/MIT_License) &copy; [Rareview][1] 2021-present
 
 

@@ -1,0 +1,59 @@
+{
+    "name": "rareview/wp-vip-site",
+    "description": "Template for engineering sites on WordPress VIP Platform.",
+    "type": "project",
+    "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": {
+        "vip-go-mu-plugins": {
+            "type": "git",
+            "url": "https://github.com/automattic/vip-go-mu-plugins-built"
+        },
+        "wpackagist": {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "process-timeout": 600,
+        "preferred-install": "dist",
+        "vendor-dir": "client-mu-plugins/vendor",
+        "platform-check": false,
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "autoload": {
+        "psr-4": {}
+    },
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "automattic/vip-go-mu-plugins": "dev-master",
+        "automattic/vipwpcs": "^2.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "deploy": [
+            "composer install --no-dev --prefer-dist --optimize-autoloader"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "plugins/{$name}": [
+                "type:wordpress-plugin"
+            ],
+            "themes/{$name}": [
+                "type:wordpress-theme"
+            ],
+            "client-mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ]
+        }
+    }
+}

@@ -1,0 +1,50 @@
+name: wp-vip-site
+
+recipe: wordpress
+
+config:
+  php: 7.4
+  composer_version: 2
+  webroot: .local/site
+  cache: memcached
+  ssl: true
+  via: nginx
+  xdebug: true
+  config:
+    php: .local/php.ini
+    database: .local/mysql.cnf
+
+services:
+  appserver:
+    build_as_root:
+      - apt-get update -y
+      - yes | pecl install memcache-4.0.5.2
+      - docker-php-ext-enable memcache
+  memcached:
+    type: memcached:1.5.12
+    portforward: true
+
+env_file:
+  - .local/.env
+
+proxy:
+  appserver_nginx:
+    - wp-vip.lndo.site
+
+events:
+  pre-start:
+    - bash .local/bin/pre-start.sh
+  post-start:
+    - bash .local/bin/post-start.sh
+
+tooling:
+  import-db:
+    description: Imports <root>/db.sql into the WordPress database.
+    service: appserver
+    cmd:
+      - if [ ! -e "db.sql" ]; then echo "Database file (db.sql) does not exist."; exit 1; fi
+      - wp db import db.sql
+      - wp search-replace example.com wp-vip.lndo.site --include-columns=guid
+      - wp cache flush
+      - wp rewrite flush
+      - wp user create lando lando@wp-vip.lndo.site --role=administrator --user_pass=password

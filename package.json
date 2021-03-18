@@ -27,7 +27,11 @@
             "pre-commit": "lint-staged"
         }
     },
-    "scripts": {},
+    "scripts": {
+        "deploy": "echo 'TBD'",
+        "lint:css": "echo 'TBD'",
+        "lint:js": "echo 'TBD'"
+    },
     "devDependencies": {
         "husky": "^4.3.0",
         "lint-staged": "^10.4.0",

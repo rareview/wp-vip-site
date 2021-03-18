@@ -1,0 +1,55 @@
+name: Deployments
+
+on:
+  push:
+    branches:
+      - master
+      - stage
+      - test
+
+env:
+  SRC: 'site'
+  DIST: 'site-built'
+
+jobs:
+  deploy:
+    name: Sync and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source branch.
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.SRC }}
+
+      - name: Store branch reference.
+        working-directory: ${{ env.SRC }}
+        run: echo "SRC_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
+      - name: Checkout destination branch.
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.SRC_BRANCH }}-built
+          path: ${{ env.DIST }}
+
+      - name: Install Dependencies
+        working-directory: ${{ env.SRC }}
+        run: |
+          npm install --ignore-scripts
+          npm run deploy
+
+      - name: Sync Changes
+        run: |
+          rsync --archive --recursive --filter='protect .git' --delete --prune-empty-dirs --include-from="$GITHUB_WORKSPACE/$SRC/.distinclude" "$GITHUB_WORKSPACE/$SRC/" "$GITHUB_WORKSPACE/$DIST/"
+
+      - name: Deploy Changes
+        if: success()
+        working-directory: ${{ env.DIST }}
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "Skipped deploy due to no changes present."; exit 0; fi
+          git config user.name "Rareview 🤖"
+          git config user.email hello@rareview.com
+          git add .
+          git commit -m "$MESSAGE"
+          git push

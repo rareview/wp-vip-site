@@ -1,3 +1,5 @@
+[![We're Hiring Banner](https://rareview.com/wp-content/uploads/2021/07/repo-banner.jpg)](https://rareview.com/careers/)
+
 # WordPress VIP Site Template
 
 [1]: https://rareview.com

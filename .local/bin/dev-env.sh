@@ -63,7 +63,7 @@ destroy_env() {
 start_env() {
 	print_style "Starting the ${REPO_DIR} VIP local environment...\n" "success"
 	vip --slug="${REPO_DIR}" dev-env start
-	print_style"WordPress Credentials: Username: vipgo \t Password: password\n" "success"
+	print_style "WordPress Credentials: Username: vipgo \t Password: password\n" "success"
 }
 
 stop_env() {

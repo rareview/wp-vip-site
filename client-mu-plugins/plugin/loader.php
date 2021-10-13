@@ -18,11 +18,11 @@ class Loader {
 	 * Bootstrap constructor.
 	 */
 	public function __construct() {
-		\add_action( 'muplugins_loaded', [ __CLASS__, 'admin' ] );
+		\add_action( 'muplugins_loaded', [ __CLASS__, 'muplugins_loaded' ] );
 	}
 
 	/**
-	 * Loads the require items.
+	 * Loads the required items.
 	 */
 	public static function muplugins_loaded() {}
 }

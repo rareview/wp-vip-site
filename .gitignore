@@ -1,5 +1,7 @@
 # Local Development
 .local/site
+.local/db_dumps/*
+!.local/db_dumps/*
 debug.log
 
 # Build files.

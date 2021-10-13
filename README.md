@@ -9,27 +9,34 @@
 [5]: https://npmjs.com
 [6]: https://github.com/features/actions
 [8]: https://lando.dev
+[9]: https://www.docker.com/products/docker-desktop
+[10]: https://docs.wpvip.com/technical-references/vip-cli/
+[11]: https://docs.wpvip.com/how-tos/local-development/use-the-vip-local-development-environment/
 
-A starter template, built and maintained by [Rareview][1], to jumpstart development for the [WPVIP Platform][2]. This template brings together some of the most modern forms for engineering and continuous intergrations, leveraging tools like [Composer][3], [Node][4] + [NPM][5], and [Github Actions][6].
+A starter template, built and maintained by [Rareview][1], to jumpstart development for the [WPVIP Platform][2]. 
+This template brings together some of the most modern forms for engineering and continuous integration, leveraging tools like [Composer][3], [Node][4] + [NPM][5], and [Github Actions][6].
 
-## Configuration
+## Prerequisites
 
-The following configurations are required in order to build using this project template.
-
-### Programming Tools
-
-- [Lando][8] 3.0+
+- PHP 7.2 or higher
+- [VIP CLI][10]
+- [Docker Desktop][9]
 - [Composer][3] 2.0+
-- [Node][4] 12.0+ LTS
+- [Node][4] 14.0+ LTS
 - [NPM][5] 6.0+
+- [Lando][8] 3.0+
 
-### Local Development
+## Local Development
 
-This project contains default configuration for local development using [Lando][8] (learn more and download [here](https://lando.dev/download/)), a versitile and modern development tool, which works seemlessly with WordPress development.
+This project local development is powered by the [VIP Local Development Environment][11].
 
-### VSCode Config
+Once a new VIP site repo has been set up using this template, the following steps:
 
-While development with a particular IDE is not required, this particular project does include configuration for VSCode, which consisits of recommended extensions and devault XDebug configuration for PHP.
+TBD
+
+## VSCode Config
+
+While development with a particular IDE is not required, this particular project does include configuration for VSCode, which consists of recommended extensions and default XDebug configuration for PHP.
 
 ## Workflows
 
@@ -38,5 +45,3 @@ See [Engineering Workflows](.vip/docs/workflows.md) documentation.
 ## License
 
 [MIT](https://en.wikipedia.org/wiki/MIT_License) &copy; [Rareview][1] 2021-present
-
-

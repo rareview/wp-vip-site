@@ -28,6 +28,14 @@
         }
     },
     "scripts": {
+        "env:init": "./.local/bin/dev-env.sh init",
+        "env:destroy": "./.local/bin/dev-env.sh destroy",
+        "env:start": "./.local/bin/dev-env.sh start",
+        "env:stop": "./.local/bin/dev-env.sh stop",
+        "env:exec": "./.local/bin/dev-env.sh exec",
+        "env:wp": "./.local/bin/dev-env.sh wp",
+        "env:log": "tail -f ./.local/site/log/debug.log",
+        "env:info": "./.local/bin/dev-env.sh info",
         "deploy": "echo 'TBD'",
         "lint:css": "echo 'TBD'",
         "lint:js": "echo 'TBD'"

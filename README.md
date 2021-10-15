@@ -30,9 +30,57 @@ This template brings together some of the most modern forms for engineering and 
 
 This project local development is powered by the [VIP Local Development Environment][11].
 
-Once a new VIP site repo has been set up using this template, the following steps:
+_Note: All the commands described below should be executed from the root of the repo._
 
-TBD
+### Environment setup
+
+The first step which should be done only once per repository is to initialize the environment using the following command:
+
+```shell
+npm run env:init
+```
+
+This command will run the following steps:
+
+- Run the `composer install` command to install PHP dependencies.
+- Run the `npm install` command to install the Node dependencies.
+- Run the VIP command to setup a local WordPress development environment.
+- Prompt you whether or not you want a WordPress multisite environment setup.
+- Create a symlink of the new VIP WordPress development environment setup folder to the `.local/site` folder local to the repo.
+
+### Environment usage
+
+Once you have intialized the environment wih the command above you can:
+
+```shell
+- npm run env:start # Start the environment.
+- npm run env:stop # Stop the environment.
+- npm run env:wp # Run a WP CLI command .
+- npm run env:exec # Execute a command on the environment (any bash command).
+- npm run env:info # Get some info about the environment.
+```
+
+Note: The default WordPress credentials are:
+
+```shell
+Username: vipgo
+Passoword: password
+```
+
+### Environment termination
+
+If you want to destroy the environment and start from scratch again, run the following command:
+
+```shell
+npm run env:destroy
+```
+
+This command will run the following steps:
+
+- Remove the `./client-mu-plugins/vendor/` Composer dependencies folder in .
+- Remove the `node_modules` Node dependencies folder.
+- Run the VIP command to destroy the local WordPress development environment.
+- Remove the symlink of the VIP WordPress development environment setup folder to the `.local/site` folder local to the repo.
 
 ## VSCode Config
 

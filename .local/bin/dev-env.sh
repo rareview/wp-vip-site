@@ -53,9 +53,11 @@ init_env() {
 destroy_env() {
 	print_style "Removing ${VENDOR_DIR}...\n" "success"
 	rm -rf "${VENDOR_DIR}"
+	print_style "Removing the node_modules folder...\n" "success"
+	rm -rf node_modules
+	ENV_DIR=$(vip --slug="${REPO_DIR}" dev-env info | awk '/LOCATION/ {print $2}')
 	print_style "Destroying the '${REPO_DIR}' VIP local environment...\n" "success"
 	vip --slug="${REPO_DIR}" dev-env destroy
-	ENV_DIR=$(vip --slug="${REPO_DIR}" dev-env info | awk '/LOCATION/ {print $2}')
 	print_style "Removing ${ENV_DIR}...\n" "success"
 	rm -rf "${ENV_DIR}"
 }

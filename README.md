@@ -60,7 +60,7 @@ Once you have intialized the environment wih the command above you can:
 - npm run env:info # Get some info about the environment.
 ```
 
-Note: The default WordPress credentials are:
+**Note - The default WordPress credentials are:**
 
 ```shell
 Username: vipgo

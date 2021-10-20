@@ -58,6 +58,8 @@ destroy_env() {
 	ENV_DIR=$(vip --slug="${REPO_DIR}" dev-env info | awk '/LOCATION/ {print $2}')
 	print_style "Destroying the '${REPO_DIR}' VIP local environment...\n" "success"
 	vip --slug="${REPO_DIR}" dev-env destroy
+	print_style "Removing the ${ENV_CONFIG_DIR} symlink...\n" "success"
+	rm -rf "${ENV_CONFIG_DIR}"
 	print_style "Removing ${ENV_DIR}...\n" "success"
 	rm -rf "${ENV_DIR}"
 }

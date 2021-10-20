@@ -50,7 +50,7 @@ This command will run the following steps:
 
 ### Environment usage
 
-Once you have intialized the environment wih the command above you can:
+Once you have initialized the environment wih the command above you can:
 
 ```shell
 - npm run env:start # Start the environment.

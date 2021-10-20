@@ -24,7 +24,7 @@ print_style () {
 
 usage() {
 	echo "usage: $0 command"
-	echo "  init		Init the dev environment"
+	echo "  init [-m]	Init the dev environment. The '-m' option is for setting up a multisite"
 	echo "  destroy		Destroy the dev environment"
 	echo "  start		Start the dev environment"
 	echo "  stop		Stop the dev environment"
@@ -39,12 +39,17 @@ ENV_CONFIG_DIR="$(pwd)/.local/site"
 VENDOR_DIR="$(pwd)/client-mu-plugins/vendor"
 
 init_env() {
+	MULTISITE='--multisite=false'
+	if [[ "$1" ==  "-m" ]]; then
+		MULTISITE='--multisite'
+	fi;
+	echo ${MULTISITE}
 	print_style "Installing composer dependencies...\n" "success"
 	composer install
 	print_style "Installing npm dependencies...\n" "success"
 	npm install
 	print_style "Initializing the '${REPO_DIR}' VIP local environment...\n" "success"
-	vip --slug="${REPO_DIR}" dev-env create --title="${REPO_DIR} Dev Env " --phpmyadmin --mu-plugins="./client-mu-plugins/vendor/automattic/vip-go-mu-plugins" --client-code="./" --wordpress="5.8"
+	vip --slug="${REPO_DIR}" dev-env create --title="${REPO_DIR} Dev Env " --phpmyadmin --mu-plugins="./client-mu-plugins/vendor/automattic/vip-go-mu-plugins" --client-code="./" --wordpress="5.8" ${MULTISITE}
 	ENV_DIR=$(vip --slug="${REPO_DIR}" dev-env info | awk '/LOCATION/ {print $2}')
 	print_style "Creating a symlink from ${ENV_DIR} to ${ENV_CONFIG_DIR}\n" "success"
 	ln -s ${ENV_DIR} ${ENV_CONFIG_DIR}
@@ -88,7 +93,7 @@ info_env() {
 }
 
 if [ "${1}" == "init" ]; then
-	init_env
+	init_env "${@:2}"
 elif [ "${1}" == "destroy" ]; then
 	destroy_env
 elif [ "${1}" == "start" ]; then

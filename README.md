@@ -37,7 +37,7 @@ _Note: All the commands described below should be executed from the root of the 
 The first step which should be done only once per repository is to initialize the environment using the following command:
 
 ```shell
-npm run env:init
+npm run env:init # or for a multiste: npm run env:init -- -m 
 ```
 
 This command will run the following steps:
@@ -45,7 +45,6 @@ This command will run the following steps:
 - Run the `composer install` command to install PHP dependencies.
 - Run the `npm install` command to install the Node dependencies.
 - Run the VIP command to setup a local WordPress development environment.
-- Prompt you whether or not you want a WordPress multisite environment setup.
 - Create a symlink of the new VIP WordPress development environment setup folder to the `.local/site` folder local to the repo.
 
 ### Environment usage

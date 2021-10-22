@@ -57,6 +57,8 @@ Once you have initialized the environment wih the command above you can:
 - npm run env:wp # Run a WP CLI command .
 - npm run env:exec # Execute a command on the environment (any bash command).
 - npm run env:info # Get some info about the environment.
+- npm run env:db:import # Import a SQL file into the environment.
+- npm run env:db:search-replace # Perform a search and replace on a SQL file.
 ```
 
 **Note - The default WordPress credentials are:**
@@ -64,6 +66,18 @@ Once you have initialized the environment wih the command above you can:
 ```shell
 Username: vipgo
 Passoword: password
+```
+#### importing a remote environment database.
+
+To import a remote environment database, the usual workflow would be :
+- Place the database sql dump into the ./local/db-dump directory, so it will be ignored from git.
+- Run the DB search and replace command which will look like:
+```shell
+npm run env:db:search-replace -- ./.local/db_dumps/file.sql -s="REMOTE_ENV_DOMAIN_NAME,LOCAL_DEV_ENV_DOMAIN_NAME" -o="./.local/db_dumps/updated-file.sql"
+```
+- Run the DB import command which will look like:
+```shell
+npm run env:db:import ./.local/db_dumps/updated-file.sql
 ```
 
 ### Environment termination

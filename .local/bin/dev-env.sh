@@ -24,12 +24,14 @@ print_style () {
 
 usage() {
 	echo "usage: $0 command"
-	echo "  init [-m]	Init the dev environment. The '-m' option is for setting up a multisite"
-	echo "  destroy		Destroy the dev environment"
-	echo "  start		Start the dev environment"
-	echo "  stop		Stop the dev environment"
-	echo "  exec		Execute an operation on a dev environment"
-	echo "  info		Provides basic info about the dev environments"
+	echo "  init [-m]                               Init the dev environment. The '-m' option is for setting up a multisite"
+	echo "  destroy                                 Destroy the dev environment"
+	echo "  start                                   Start the dev environment"
+	echo "  stop                                    Stop the dev environment"
+	echo "  exec                                    Execute an operation on a dev environment"
+	echo "  info                                    Provides basic info about the dev environments"
+	echo "  db-import <file.sql>                    Import a SQL file into the dev environment"
+	echo '  db-search-replace <file.sql> [options]  Perform a search and replace on a SQL file. The required options are: -s="from,to" -o="<output.sql>"'
 	echo "  -h | usage  Output this message"
 	exit 1
 }
@@ -81,7 +83,7 @@ stop_env() {
 }
 
 exec_env() {
-	vip --slug="${REPO_DIR}" dev-env exec -- "${1}"
+	vip --slug="${REPO_DIR}" dev-env exec -- "${@:1}"
 }
 
 exec_wp_env() {
@@ -90,6 +92,14 @@ exec_wp_env() {
 
 info_env() {
 	vip --slug="${REPO_DIR}" dev-env info
+}
+
+db_import_env() {
+	vip --slug="${REPO_DIR}" dev-env import sql "${@:1}"
+}
+
+db_search_replace_env() {
+	vip search-replace "${@:1}"
 }
 
 if [ "${1}" == "init" ]; then
@@ -106,6 +116,10 @@ elif [ "${1}" == "wp" ]; then
 	exec_wp_env "${@:2}"
 elif [ "${1}" == "info" ]; then
 	info_env
+elif [ "${1}" == "db-import" ]; then
+	db_import_env "${@:2}"
+elif [ "${1}" == "db-search-replace" ]; then
+	db_search_replace_env "${@:2}"
 else
 	usage
 fi

@@ -36,6 +36,8 @@
         "env:wp": "./.local/bin/dev-env.sh wp",
         "env:log": "tail -f ./.local/site/log/debug.log",
         "env:info": "./.local/bin/dev-env.sh info",
+        "env:db:import": "./.local/bin/dev-env.sh db-import",
+        "env:db:search-replace": "./.local/bin/dev-env.sh db-search-replace",
         "deploy": "echo 'TBD'",
         "lint:css": "echo 'TBD'",
         "lint:js": "echo 'TBD'"

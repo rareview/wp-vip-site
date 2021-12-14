@@ -30,7 +30,7 @@
     "scripts": {
         "deps:install": "npm install && composer install",
         "deps:uninstall": "rm -drf node_modules wp-content/client-mu-plugins/vendor",
-        "env:create": "vip --slug wp-vip-site dev-env create --title REI --phpmyadmin --mu-plugins ./client-mu-plugins/vendor/automattic/vip-go-mu-plugins --client-code ./ --wordpress 5.8 --multisite true",
+        "env:create": "vip --slug wp-vip-site dev-env create --title WPVIPSITE --phpmyadmin --mu-plugins ./client-mu-plugins/vendor/automattic/vip-go-mu-plugins --client-code ./ --wordpress 5.8 --multisite true",
         "env:start": "vip --slug wp-vip-site dev-env start",
         "env:stop": "vip --slug wp-vip-site dev-env stop",
         "env:info": "vip --slug wp-vip-site dev-env info",

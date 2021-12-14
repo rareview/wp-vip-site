@@ -19,12 +19,5 @@ class Plugin extends Config {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
-		\add_action( 'muplugins_loaded', [ __CLASS__, 'load' ] );
-	}
-
-	/**
-	 * Loads the require items.
-	 */
-	public static function load() {}
+	public function __construct() {}
 }

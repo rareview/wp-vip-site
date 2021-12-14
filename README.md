@@ -18,9 +18,9 @@ The following configurations are required in order to build using this project t
 
 ### Programming Tools
 
-- [Lando][8] 3.0+
+- [Lando][8] 3.4+
 - [Composer][3] 2.0+
-- [Node][4] 12.0+ LTS
+- [Node][4] 14.0+ LTS
 - [NPM][5] 6.0+
 
 ### Local Development

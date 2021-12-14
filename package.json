@@ -28,14 +28,32 @@
         }
     },
     "scripts": {
-        "deploy": "echo 'TBD'",
-        "lint:css": "echo 'TBD'",
-        "lint:js": "echo 'TBD'"
+        "deps:install": "npm install && composer install",
+        "deps:uninstall": "rm -drf node_modules wp-content/client-mu-plugins/vendor",
+        "env:create": "vip --slug wp-vip-site dev-env create --title REI --phpmyadmin --mu-plugins ./wp-content/client-mu-plugins/vendor/automattic/vip-go-mu-plugins --client-code ./wp-content --wordpress 5.8 --multisite true",
+        "env:start": "vip --slug wp-vip-site dev-env start",
+        "env:stop": "vip --slug wp-vip-site dev-env stop",
+        "env:info": "vip --slug wp-vip-site dev-env info",
+        "env:destroy": "vip --slug wp-vip-site dev-env destroy",
+        "lint": "npm-run-all lint:*",
+        "lint:php": "composer lint",
+        "lint:js": "npm run lint:js",
+        "lint:css": "npm run lint:style",
+        "wp": "vip dev-env exec --slug wp-vip-site -- wp shell"
     },
     "devDependencies": {
         "husky": "^4.3.0",
         "lint-staged": "^10.4.0",
-        "npm-run-all": "^4.1.5"
+        "npm-run-all": "^4.1.5",
+        "@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^10.1.0",
+        "csso-webpack-plugin": "^2.0.0-beta.3",
+        "glob": "^7.2.0",
+        "mini-css-extract-plugin": "^2.4.5",
+        "terser-webpack-plugin": "^5.2.5",
+        "webpack-manifest-plugin": "^4.0.2",
+        "webpack-remove-empty-scripts": "^0.7.2"
     },
     "dependencies": {}
 }

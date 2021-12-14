@@ -10,10 +10,12 @@
 
 namespace WPVIPSITE\Plugins\PluginName;
 
+use WPVIPSITE\Plugins\Config;
+
 /**
  * Plugin Class
  */
-class Plugin {
+class Plugin extends Config {
 	/**
 	 * Constructor.
 	 */

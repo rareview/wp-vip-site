@@ -31,10 +31,6 @@ This project contains default configuration for local development using [Lando][
 
 While development with a particular IDE is not required, this particular project does include configuration for VSCode, which consisits of recommended extensions and devault XDebug configuration for PHP.
 
-## Workflows
-
-See [Engineering Workflows](.vip/docs/workflows.md) documentation.
-
 ## License
 
 [MIT](https://en.wikipedia.org/wiki/MIT_License) &copy; [Rareview][1] 2021-present

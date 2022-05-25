@@ -13,7 +13,7 @@
 [10]: https://docs.wpvip.com/technical-references/vip-cli/
 [11]: https://docs.wpvip.com/how-tos/local-development/use-the-vip-local-development-environment/
 
-A starter template, built and maintained by [Rareview][1], to jumpstart development for the [WPVIP Platform][2]. 
+A starter template, built and maintained by [Rareview][1], to jumpstart development for the [WP VIP Platform][2]. 
 This template brings together some of the most modern forms for engineering and continuous integration, leveraging tools like [Composer][3], [Node][4] + [NPM][5], and [Github Actions][6].
 
 ## Prerequisites

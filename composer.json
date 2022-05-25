@@ -6,10 +6,6 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "repositories": {
-        "vip-go-mu-plugins": {
-            "type": "git",
-            "url": "https://github.com/automattic/vip-go-mu-plugins-built"
-        },
         "wpackagist": {
             "type": "composer",
             "url": "https://wpackagist.org"
@@ -36,7 +32,8 @@
     "require-dev": {
         "automattic/vip-go-mu-plugins": "dev-master",
         "automattic/vipwpcs": "^2.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "wpackagist-theme/twentytwentyone": "^1.4"
     },
     "scripts": {
         "lint": "phpcs",

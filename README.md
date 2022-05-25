@@ -24,7 +24,6 @@ This template brings together some of the most modern forms for engineering and 
 - [Composer][3] 2.0+
 - [Node][4] 14.0+ LTS
 - [NPM][5] 6.0+
-- [Lando][8] 3.0+
 
 ## Local Development
 
@@ -98,10 +97,6 @@ This command will run the following steps:
 ## VSCode Config
 
 While development with a particular IDE is not required, this particular project does include configuration for VSCode, which consists of recommended extensions and default XDebug configuration for PHP.
-
-## Workflows
-
-See [Engineering Workflows](.vip/docs/workflows.md) documentation.
 
 ## License
 

@@ -38,23 +38,29 @@
         "env:info": "./.local/bin/dev-env.sh info",
         "env:db:import": "./.local/bin/dev-env.sh db-import",
         "env:db:search-replace": "./.local/bin/dev-env.sh db-search-replace",
-        "deploy": "echo 'TBD'",
-        "lint:css": "echo 'TBD'",
-        "lint:js": "echo 'TBD'"
+        "env:deps:install": "npm install && composer install",
+        "env:deps:uninstall": "rm -drf node_modules wp-content/client-mu-plugins/vendor",
+        "lint": "npm-run-all lint:*",
+        "lint:css": "npm-run-all lint:css:*",
+        "lint:css:theme": "wp-scripts lint-style 'themes/**/*.css'",
+        "lint:js": "npm-run-all lint:js:*",
+        "lint:js:theme": "wp-scripts lint-js 'themes/**/*.js'",
+        "lint:js:plugin": "wp-scripts lint-js 'client-mu-plugins/**/*.js'",
+        "lint:php": "composer lint"
     },
     "devDependencies": {
-        "husky": "^4.3.0",
-        "lint-staged": "^10.4.0",
-        "npm-run-all": "^4.1.5",
         "@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+        "@wordpress/scripts": "^23.1.0",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^10.1.0",
         "csso-webpack-plugin": "^2.0.0-beta.3",
         "glob": "^7.2.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.4.0",
         "mini-css-extract-plugin": "^2.4.5",
+        "npm-run-all": "^4.1.5",
         "terser-webpack-plugin": "^5.2.5",
         "webpack-manifest-plugin": "^4.0.2",
         "webpack-remove-empty-scripts": "^0.7.2"
-    },
-    "dependencies": {}
+    }
 }

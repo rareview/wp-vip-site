@@ -18,12 +18,13 @@ This template brings together some of the most modern forms for engineering and 
 
 ## Prerequisites
 
-- PHP 7.2 or higher
-- [VIP CLI][10]
-- [Docker Desktop][9]
-- [Composer][3] 2.0+
-- [Node][4] 14.0+ LTS
-- [NPM][5] 6.0+
+- PHP 7.4 or higher
+- [VIP CLI][10] Latest version recommended
+- [Docker Desktop][9] Latest version recommended
+- [Composer][3] Latest version recommended
+- [Node][4] Latest version recommended
+- [NPM][5] Latest version recommended
+- [Lando][8] Latest version recommended
 
 ## Local Development
 
@@ -45,6 +46,16 @@ This command will run the following steps:
 - Run the `npm install` command to install the Node dependencies.
 - Run the VIP command to setup a local WordPress development environment.
 - Create a symlink of the new VIP WordPress development environment setup folder to the `.local/site` folder local to the repo.
+
+**Note**: Please ignore the message in the output of the command above mentioned the following:
+
+```
+To start it please run:
+
+vip dev-env start --slug SLUG_OF_THE_SITE
+```
+
+As the next command to progress will be `npm run env:start`. See below for more details.
 
 ### Environment usage
 

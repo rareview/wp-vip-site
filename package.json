@@ -22,11 +22,6 @@
             "npm run lint:php --silent"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "scripts": {
         "env:init": "./.local/bin/dev-env.sh init",
         "env:destroy": "./.local/bin/dev-env.sh destroy",
@@ -46,7 +41,8 @@
         "lint:js": "npm-run-all lint:js:*",
         "lint:js:theme": "wp-scripts lint-js 'themes/**/*.js'",
         "lint:js:plugin": "wp-scripts lint-js 'client-mu-plugins/**/*.js'",
-        "lint:php": "composer lint"
+        "lint:php": "composer lint",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@wordpress/dependency-extraction-webpack-plugin": "^3.5.0",

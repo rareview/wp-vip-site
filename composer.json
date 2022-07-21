@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "automattic/vip-go-mu-plugins": "dev-master",
-        "automattic/vipwpcs": "^2.2",
+        "automattic/vipwpcs": "2.3.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "wpackagist-theme/twentytwentyone": "^1.4"
     },

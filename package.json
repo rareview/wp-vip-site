@@ -22,38 +22,41 @@
             "npm run lint:php --silent"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "scripts": {
-        "deps:install": "npm install && composer install",
-        "deps:uninstall": "rm -drf node_modules wp-content/client-mu-plugins/vendor",
-        "env:create": "vip --slug wp-vip-site dev-env create --title WPVIPSITE --phpmyadmin --mu-plugins ./client-mu-plugins/vendor/automattic/vip-go-mu-plugins --client-code ./ --wordpress 5.8 --multisite true",
-        "env:start": "vip --slug wp-vip-site dev-env start",
-        "env:stop": "vip --slug wp-vip-site dev-env stop",
-        "env:info": "vip --slug wp-vip-site dev-env info",
-        "env:destroy": "vip --slug wp-vip-site dev-env destroy",
+        "env:init": "./.local/bin/dev-env.sh init",
+        "env:destroy": "./.local/bin/dev-env.sh destroy",
+        "env:start": "./.local/bin/dev-env.sh start",
+        "env:stop": "./.local/bin/dev-env.sh stop",
+        "env:exec": "./.local/bin/dev-env.sh exec",
+        "env:wp": "./.local/bin/dev-env.sh wp",
+        "env:log": "tail -f ./.local/site/log/debug.log",
+        "env:info": "./.local/bin/dev-env.sh info",
+        "env:db:import": "./.local/bin/dev-env.sh db-import",
+        "env:db:search-replace": "./.local/bin/dev-env.sh db-search-replace",
+        "env:deps:install": "npm install && composer install",
+        "env:deps:uninstall": "rm -drf node_modules wp-content/client-mu-plugins/vendor",
         "lint": "npm-run-all lint:*",
+        "lint:css": "npm-run-all lint:css:*",
+        "lint:css:theme": "wp-scripts lint-style 'themes/**/*.css'",
+        "lint:js": "npm-run-all lint:js:*",
+        "lint:js:theme": "wp-scripts lint-js 'themes/**/*.js'",
+        "lint:js:plugin": "wp-scripts lint-js 'client-mu-plugins/**/*.js'",
         "lint:php": "composer lint",
-        "lint:js": "npm run lint:js",
-        "lint:css": "npm run lint:style",
-        "wp": "vip dev-env exec --slug wp-vip-site -- wp shell"
+        "prepare": "husky install"
     },
     "devDependencies": {
-        "husky": "^4.3.0",
-        "lint-staged": "^10.4.0",
-        "npm-run-all": "^4.1.5",
-        "@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+        "@wordpress/dependency-extraction-webpack-plugin": "^3.5.0",
+        "@wordpress/scripts": "^23.1.0",
         "clean-webpack-plugin": "^4.0.0",
-        "copy-webpack-plugin": "^10.1.0",
+        "copy-webpack-plugin": "^11.0.0",
         "csso-webpack-plugin": "^2.0.0-beta.3",
-        "glob": "^7.2.0",
-        "mini-css-extract-plugin": "^2.4.5",
-        "terser-webpack-plugin": "^5.2.5",
-        "webpack-manifest-plugin": "^4.0.2",
-        "webpack-remove-empty-scripts": "^0.7.2"
-    },
-    "dependencies": {}
+        "glob": "^8.0.3",
+        "husky": "^6.0.0",
+        "lint-staged": "^12.4.3",
+        "mini-css-extract-plugin": "^2.6.0",
+        "npm-run-all": "^4.1.5",
+        "terser-webpack-plugin": "^5.3.1",
+        "webpack-manifest-plugin": "^5.0.0",
+        "webpack-remove-empty-scripts": "^0.8.0"
+    }
 }

@@ -19,6 +19,10 @@
         "platform-check": false,
         "platform": {
             "php": "7.4"
+        },
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "autoload": {
@@ -27,13 +31,14 @@
         }
     },
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "^2.1"
     },
     "require-dev": {
         "automattic/vip-go-mu-plugins": "dev-master",
         "automattic/vipwpcs": "^2.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "wpackagist-theme/twentytwentyone": "^1.4"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "roave/security-advisories": "dev-latest",
+        "wpackagist-theme/twentytwentytwo": "^1.2"
     },
     "scripts": {
         "lint": "phpcs",

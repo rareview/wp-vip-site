@@ -27,13 +27,13 @@
         }
     },
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "1.10.0"
     },
     "require-dev": {
         "automattic/vip-go-mu-plugins": "dev-master",
-        "automattic/vipwpcs": "^2.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-        "wpackagist-theme/twentytwentyone": "^1.4"
+        "automattic/vipwpcs": "2.2.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "0.7.1",
+        "wpackagist-theme/twentytwentyone": "1.4"
     },
     "scripts": {
         "lint": "phpcs",
